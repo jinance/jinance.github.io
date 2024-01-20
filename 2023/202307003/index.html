@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>Selenium学习笔记（1） | jinance</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="selenium," />
+  
+
+  <meta name="description" content="​    Xpath通过路径来定位控件，分为绝对路径和相对路径。绝对路径以单&#x2F;号表示，相对路径则以&#x2F;&#x2F;表示。当xpath的路径以&#x2F;开头时，表示让Xpath解析引擎从文档的根节点开始解析。当xpath路径以&#x2F;&#x2F;开头时，则表示让xpath引擎从文档的任意符合的元素节点开始进行解析。而当&#x2F;出现在xpath路径中时，则表示寻找父节点的直">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Selenium学习笔记（1）">
+<meta property="og:url" content="http://yoursite.com/2023/202307003/index.html">
+<meta property="og:site_name" content="jinance">
+<meta property="og:description" content="​    Xpath通过路径来定位控件，分为绝对路径和相对路径。绝对路径以单&#x2F;号表示，相对路径则以&#x2F;&#x2F;表示。当xpath的路径以&#x2F;开头时，表示让Xpath解析引擎从文档的根节点开始解析。当xpath路径以&#x2F;&#x2F;开头时，则表示让xpath引擎从文档的任意符合的元素节点开始进行解析。而当&#x2F;出现在xpath路径中时，则表示寻找父节点的直">
+<meta property="og:locale">
+<meta property="article:published_time" content="2023-07-08T08:21:23.000Z">
+<meta property="article:modified_time" content="2023-08-06T13:18:15.013Z">
+<meta property="article:author" content="jinance">
+<meta property="article:tag" content="selenium">
+<meta name="twitter:card" content="summary">
+
+  
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    
+<link rel="stylesheet" href="/css/personal-style.css">
+
+  
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-38189205-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+
+<script type="text/javascript" src="http://libs.baidu.com/jquery/1.8.3/jquery.js"></script>
+<script type="text/javascript" src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">首页</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">首页</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-202307003" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">Selenium学习笔记（1）</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2023.07.08</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>jinance</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <p>​    Xpath通过路径来定位控件，分为绝对路径和相对路径。绝对路径以单&#x2F;号表示，相对路径则以&#x2F;&#x2F;表示。当xpath的路径以&#x2F;开头时，表示让Xpath解析引擎从文档的根节点开始解析。当xpath路径以&#x2F;&#x2F;开头时，则表示让xpath引擎从文档的任意符合的元素节点开始进行解析。而当&#x2F;出现在xpath路径中时，则表示寻找父节点的直接子节点，当&#x2F;&#x2F;出现在xpath路径中时，表示寻找父节点下任意符合条件的子节点。弄清这个原则，就可以理解其实xpath的路径可以绝对路径和相对路径混合在一起来进行表示，想怎么玩就怎么玩。</p>
+<p><strong>遇到的问题：</strong></p>
+<ul>
+<li><strong>Selenium如何让启动的浏览器和手动启动的浏览器信息一致：</strong>导入原浏览器的用户配置即可，通过edge:&#x2F;&#x2F;version&#x2F;查询用户配置路径信息，不要复制Default。代码如下：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"></span><br><span class="line">option = webdriver.EdgeOptions()</span><br><span class="line">option.add_argument(<span class="string">r&#x27;--user-data-dir=C:\Users\samsung\AppData\Local\Microsoft\Edge\User Data&#x27;</span>)</span><br><span class="line">option.add_experimental_option(<span class="string">&#x27;excludeSwitches&#x27;</span>, [<span class="string">&#x27;enable-automation&#x27;</span>])</span><br><span class="line">driver = webdriver.Edge(options=option)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>清除“正受到自动测试软件的控制”的提示：</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chrome_options = webdriver.ChromeOptions(); </span><br><span class="line">chrome_options.add_experimental_option(<span class="string">&quot;excludeSwitches&quot;</span>, [<span class="string">&#x27;enable-automation&#x27;</span>]);</span><br><span class="line">driver = webdriver.Chrome(options=chrome_options);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>selenium保留网页登陆信息(保留用户数据):</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#导入模块</span></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="comment"># 添加保持登录的数据路径：安装目录一般在C:\Users\****\AppData\Local\Google\Chrome\User Data</span></span><br><span class="line">user_data_dir = <span class="string">r&#x27;C:\Users\samsung\AppData\Local\Google\Chrome\User Data&#x27;</span></span><br><span class="line"><span class="comment">#这是一个选项类</span></span><br><span class="line">user_option = webdriver.ChromeOptions()</span><br><span class="line"><span class="comment">#添加浏览器用户数据</span></span><br><span class="line">user_option.add_argument(<span class="string">f&#x27;--user-data-dir=<span class="subst">&#123;user_data_dir&#125;</span>&#x27;</span>)</span><br><span class="line"><span class="comment">#实例化浏览器（带上用户数据）</span></span><br><span class="line">driver = webdriver.Chrome(options=user_option)</span><br><span class="line"> </span><br><span class="line">driver.get(<span class="string">&quot;https://www.csdn.net/&quot;</span>)</span><br><span class="line">time.sleep(<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>无法操控钱包插件：</strong>为了在我们的自动浏览器上加载插件，我们首先需要将Metamask扩展压缩成一个.crx文件，以下是步骤：</li>
+</ul>
+<ol>
+<li>在你的普通chrome上安装Metamask</li>
+<li>导航到<code>chrome://extensions/</code>。</li>
+<li>点击’打包扩展程序（Pack extension）’，并输入Metamask 插件的本地路径，这将生成一个<code>.crx</code>文件，你可以用它作为扩展加载到Chromium上。保存安装扩展的文件夹的名称，这将是我们以后要使用的’扩展ID’。</li>
+</ol>
+<p>注：后续遇到问题，搁置。暂时解决办法使用“**selenium保留网页登陆信息(保留用户数据):**”，+切换的方法：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">driver.execute_script(<span class="string">&quot;window.open(&#x27;&#x27;);&quot;</span>)</span><br><span class="line">driver.switch_to.window(driver.window_handles[<span class="number">1</span>])</span><br><span class="line">driver.get(<span class="string">&#x27;chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/home.html&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+    
+  </div>
+
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">🌹</span>
+      <div class="donation-body">
+        <div class="tip text-center">加油，越来越好</div>
+        <ul>
+        
+          <li class="item">
+            
+            <img src="/images/bch.png" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2023/202307002/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2023/202307004/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+  <!-- 雪花特效-2023-08-20 -->
+  <script type="text/javascript" src="\js\snow.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300,"hOffset":-15,"vOffset":-15},"mobile":{"show":true},"react":{"opacity":1},"log":false});</script></body>
+</html>

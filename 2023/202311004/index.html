@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>trxi铭文脚本mint | jinance</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="编程," />
+  
+
+  <meta name="description" content="​    早起看到有人在推trx链上的第一个铭文trxi，本着不错过的原则了解了下，总量210万张，按照手续费每张0.14$，打完市值约30w$，性价比极高，果断动手。 ​    按照网上的教程，官方给的文档需要单次点击，无法批量操作，网上看到有人做好的脚本，本地部署，没看到什么安全问题，直接复制过来用了。 Mint TRXI with nodejs Install Node.js Create">
+<meta property="og:type" content="article">
+<meta property="og:title" content="trxi铭文脚本mint">
+<meta property="og:url" content="http://yoursite.com/2023/202311004/index.html">
+<meta property="og:site_name" content="jinance">
+<meta property="og:description" content="​    早起看到有人在推trx链上的第一个铭文trxi，本着不错过的原则了解了下，总量210万张，按照手续费每张0.14$，打完市值约30w$，性价比极高，果断动手。 ​    按照网上的教程，官方给的文档需要单次点击，无法批量操作，网上看到有人做好的脚本，本地部署，没看到什么安全问题，直接复制过来用了。 Mint TRXI with nodejs Install Node.js Create">
+<meta property="og:locale">
+<meta property="article:published_time" content="2023-11-25T14:33:15.000Z">
+<meta property="article:modified_time" content="2023-11-25T14:58:29.046Z">
+<meta property="article:author" content="jinance">
+<meta property="article:tag" content="编程">
+<meta name="twitter:card" content="summary">
+
+  
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    
+<link rel="stylesheet" href="/css/personal-style.css">
+
+  
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-38189205-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+
+<script type="text/javascript" src="http://libs.baidu.com/jquery/1.8.3/jquery.js"></script>
+<script type="text/javascript" src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">首页</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">首页</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Mint-TRXI-with-nodejs"><span class="toc-text">Mint TRXI with nodejs</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-202311004" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">trxi铭文脚本mint</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2023.11.25</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>jinance</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <p>​    早起看到有人在推trx链上的第一个铭文trxi，本着不错过的原则了解了下，总量210万张，按照手续费每张0.14$，打完市值约30w$，性价比极高，果断动手。</p>
+<p>​    按照网上的教程，官方给的文档需要单次点击，无法批量操作，网上看到有人做好的脚本，本地部署，没看到什么安全问题，直接复制过来用了。</p>
+<h2 id="Mint-TRXI-with-nodejs"><a href="#Mint-TRXI-with-nodejs" class="headerlink" title="Mint TRXI with nodejs"></a>Mint TRXI with nodejs</h2><ol>
+<li>Install Node.js</li>
+<li>Create a directory,such as <code>TRC20Mint</code></li>
+<li>Open <code>TRC20Mint</code>, execute command:<code>npm init</code></li>
+<li>Execute command:<code>npm install tronweb </code></li>
+<li>Create an index.js file,copy the code below</li>
+<li>Run index.js:<code>node index.js</code></li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="title class_">TronWeb</span> = <span class="built_in">require</span>(<span class="string">&#x27;tronweb&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> readline = <span class="built_in">require</span>(<span class="string">&#x27;readline&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> rl = readline.<span class="title function_">createInterface</span>(&#123;</span><br><span class="line"><span class="attr">input</span>: process.<span class="property">stdin</span>,</span><br><span class="line"><span class="attr">output</span>: process.<span class="property">stdout</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">askQuestion</span>(<span class="params">query</span>) &#123;</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Promise</span>(<span class="function"><span class="params">resolve</span> =&gt;</span> &#123;</span><br><span class="line">rl.<span class="title function_">question</span>(query, resolve);</span><br><span class="line">&#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">main</span>(<span class="params"></span>) &#123;</span><br><span class="line"><span class="keyword">const</span> privateKey = <span class="keyword">await</span> <span class="title function_">askQuestion</span>(<span class="string">&#x27;Enter your private key: &#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> targetSuccessCountInput = <span class="keyword">await</span> <span class="title function_">askQuestion</span>(<span class="string">&#x27;Enter the number of successful transactions you want to achieve: &#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> targetSuccessCount = <span class="built_in">parseInt</span>(targetSuccessCountInput, <span class="number">10</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="built_in">isNaN</span>(targetSuccessCount)) &#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&#x27;Invalid number of transactions. Exiting...&#x27;</span>);</span><br><span class="line">process.<span class="title function_">exit</span>(<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="title class_">HttpProvider</span> = <span class="title class_">TronWeb</span>.<span class="property">providers</span>.<span class="property">HttpProvider</span>;</span><br><span class="line"><span class="keyword">const</span> fullNode = <span class="keyword">new</span> <span class="title class_">HttpProvider</span>(<span class="string">&quot;https://api.trongrid.io&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> solidityNode = <span class="keyword">new</span> <span class="title class_">HttpProvider</span>(<span class="string">&quot;https://api.trongrid.io&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> eventServer = <span class="keyword">new</span> <span class="title class_">HttpProvider</span>(<span class="string">&quot;https://api.trongrid.io&quot;</span>);</span><br><span class="line"><span class="keyword">const</span> tronWeb = <span class="keyword">new</span> <span class="title class_">TronWeb</span>(fullNode, solidityNode, eventServer, privateKey);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> blackHole = <span class="string">&quot;T9yD14Nj9j7xAB4dbGeiX9h8unkKHxuWwb&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> memo = <span class="string">&#x27;data:,&#123;&quot;p&quot;:&quot;trc-20&quot;,&quot;op&quot;:&quot;mint&quot;,&quot;tick&quot;:&quot;trxi&quot;,&quot;amt&quot;:&quot;1000&quot;&#125;&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">async</span> <span class="keyword">function</span> <span class="title function_">mint</span>(<span class="params"></span>) &#123;</span><br><span class="line"><span class="keyword">const</span> unSignedTxn = <span class="keyword">await</span> tronWeb.<span class="property">transactionBuilder</span>.<span class="title function_">sendTrx</span>(blackHole, <span class="number">1</span>); <span class="comment">//0.000001 TRX is the minimum transfer amount.</span></span><br><span class="line"><span class="keyword">const</span> unSignedTxnWithNote = <span class="keyword">await</span> tronWeb.<span class="property">transactionBuilder</span>.<span class="title function_">addUpdateData</span>(unSignedTxn, memo, <span class="string">&#x27;utf8&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> signedTxn = <span class="keyword">await</span> tronWeb.<span class="property">trx</span>.<span class="title function_">sign</span>(unSignedTxnWithNote);</span><br><span class="line"><span class="comment">// console.log(&quot;signed =&gt;&quot;, signedTxn);</span></span><br><span class="line"><span class="keyword">const</span> ret = <span class="keyword">await</span> tronWeb.<span class="property">trx</span>.<span class="title function_">sendRawTransaction</span>(signedTxn);</span><br><span class="line"><span class="comment">// console.log(&quot;broadcast =&gt;&quot;, ret);</span></span><br><span class="line"><span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> successCount = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line"><span class="keyword">const</span> ret = <span class="keyword">await</span> <span class="title function_">mint</span>();</span><br><span class="line"><span class="keyword">if</span> (ret &amp;&amp; ret.<span class="property">transaction</span> &amp;&amp; ret.<span class="property">transaction</span>.<span class="property">txID</span>) &#123;</span><br><span class="line">successCount++;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Transaction</span> <span class="title class_">Success</span> $&#123;successCount&#125;: $&#123;ret.<span class="property">transaction</span>.<span class="property">txID</span>&#125;);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Tronscan</span> <span class="attr">URL</span>: <span class="attr">https</span>:<span class="comment">//tronscan.org/#/transaction/$&#123;ret.transaction.txID&#125;);</span></span><br><span class="line"><span class="keyword">if</span> (successCount &gt;= targetSuccessCount) &#123;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Reached</span> target <span class="keyword">of</span> $&#123;targetSuccessCount&#125; successful transactions.);</span><br><span class="line"><span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">await</span> <span class="built_in">require</span>(<span class="string">&#x27;timers/promises&#x27;</span>).<span class="built_in">setTimeout</span>(<span class="number">300</span>);</span><br><span class="line">&#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="title function_">main</span>().<span class="title function_">then</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">rl.<span class="title function_">close</span>();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<p>​    很好的一个教学模板，以后可以用来套用其他的*RC20铭文mint，按照官方的部署环境后，直接运行就可以了。</p>
+
+    
+  </div>
+
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">🌹</span>
+      <div class="donation-body">
+        <div class="tip text-center">加油，越来越好</div>
+        <ul>
+        
+          <li class="item">
+            
+            <img src="/images/bch.png" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2023/202311003/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2023/202311005/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+  <!-- 雪花特效-2023-08-20 -->
+  <script type="text/javascript" src="\js\snow.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300,"hOffset":-15,"vOffset":-15},"mobile":{"show":true},"react":{"opacity":1},"log":false});</script></body>
+</html>

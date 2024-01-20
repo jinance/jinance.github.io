@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>初试flarum轻论坛 | jinance</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="编程," />
+  
+
+  <meta name="description" content="折腾了四五天的flarum安装，快要放弃的时候突然有了突破。遇到问题就容易一头扎进去陷入死循环，好几次都是等一等，放一放，问题自然而然就解决了。究其原因还是因为遇到问题心态容易焦躁，没耐心，一味的求快各种搜索解决办法，没有静下心来一条条的分析错误日志。还是养成顺手记录下来比较好，省得又忘记。  Permission denied  通过错误提示：Permission denied，分析是权限的问题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初试flarum轻论坛">
+<meta property="og:url" content="http://yoursite.com/2022/202204006/index.html">
+<meta property="og:site_name" content="jinance">
+<meta property="og:description" content="折腾了四五天的flarum安装，快要放弃的时候突然有了突破。遇到问题就容易一头扎进去陷入死循环，好几次都是等一等，放一放，问题自然而然就解决了。究其原因还是因为遇到问题心态容易焦躁，没耐心，一味的求快各种搜索解决办法，没有静下心来一条条的分析错误日志。还是养成顺手记录下来比较好，省得又忘记。  Permission denied  通过错误提示：Permission denied，分析是权限的问题">
+<meta property="og:locale">
+<meta property="article:published_time" content="2022-04-29T14:25:55.000Z">
+<meta property="article:modified_time" content="2022-04-30T13:29:04.000Z">
+<meta property="article:author" content="jinance">
+<meta property="article:tag" content="编程">
+<meta name="twitter:card" content="summary">
+
+  
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    
+<link rel="stylesheet" href="/css/personal-style.css">
+
+  
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-38189205-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+
+<script type="text/javascript" src="http://libs.baidu.com/jquery/1.8.3/jquery.js"></script>
+<script type="text/javascript" src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">首页</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">首页</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-202204006" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">初试flarum轻论坛</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2022.04.29</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>jinance</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <p>折腾了四五天的flarum安装，快要放弃的时候突然有了突破。遇到问题就容易一头扎进去陷入死循环，好几次都是等一等，放一放，问题自然而然就解决了。究其原因还是因为遇到问题心态容易焦躁，没耐心，一味的求快各种搜索解决办法，没有静下心来一条条的分析错误日志。还是养成顺手记录下来比较好，省得又忘记。</p>
+<ul>
+<li>Permission denied</li>
+</ul>
+<p>通过错误提示：Permission denied，分析是权限的问题，一开始一直以为设置的是755没有问题，刚刚发现还有个所有者的选项，默认是root，网页显示失败，改成www，结果成功了，还有一个选项是mysql就不尝试了。</p>
+<ul>
+<li>The requested resource was not found.</li>
+</ul>
+<p>又遇到问题了： The requested resource was not found. </p>
+<p>解决办法：配置问题，请求资源未找到，应该是位置的问题。</p>
+<p>引入 Flarum 提供的伪静态配置，在 <code>server name</code> 下方加上：</p>
+<p> <code>include /www/wwwroot/xxx.com/.nginx.conf;</code> </p>
+<pre><code>listen 80;
+server_name xxx.com;
+index index.php index.html index.htm default.php default.htm default.html;
+root /www/wwwroot/xxx.com/public;
+include /www/wwwroot/xxx.com/.nginx.conf;
+</code></pre>
+<p>解决好权限和配置的问题，登录网址就可以顺利进入flarum安装界面了，按照标签提示配置好数据库信息，点击安装便可。</p>
+<ul>
+<li>无法显示中文</li>
+</ul>
+<p>安装完成后默认为英文版，需要composer中文插件，安装好后刷新页面并没有切换成中文，这个插件是需要后台管理手动开启的，开启后即可切换为中文界面。</p>
+<ul>
+<li>搜索框无法搜索中文主题</li>
+</ul>
+<p>经过测试，无法搜索中文标题以及中文内容，但是可以搜索字母内容，不能搜索字母标题。论坛有非官方解决办法，但是不太完美，不想折腾了，先放一放，等待官方版本出来。</p>
+<p>看着界面完美呈现出来还是小有成就的，界面很简洁，小清新的风格。之前也尝试过discuz，wordpress，对比起来，discuz太过臃肿，当然生态也相对丰富，插件比较多。wordpress更适用于个人博客，有人做过论坛式的主题，很赞，功能也全，但是收费。flarum不仅免费，关键极简的清新风格吸引了我 。</p>
+
+    
+  </div>
+
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">🌹</span>
+      <div class="donation-body">
+        <div class="tip text-center">加油，越来越好</div>
+        <ul>
+        
+          <li class="item">
+            
+            <img src="/images/bch.png" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2022/202204005/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2022/202205001/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+  <!-- 雪花特效-2023-08-20 -->
+  <script type="text/javascript" src="\js\snow.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300,"hOffset":-15,"vOffset":-15},"mobile":{"show":true},"react":{"opacity":1},"log":false});</script></body>
+</html>
