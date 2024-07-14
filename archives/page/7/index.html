@@ -1,31 +1,26 @@
 <!DOCTYPE html>
 
 
-  <html class="light page-post">
+  <html class="light page-archives">
 
 
 <head>
   <meta charset="utf-8">
   
-  <title>hexo博客问题更新 | jinance</title>
+  <title>Archives | jinance</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-    <meta name="keywords" content="hexo," />
+    <meta name="keywords" content="比特币,以太坊,个人博客,金融,区块链,互联网,设计,生活学习,交易" />
   
 
-  <meta name="description" content="2024-01-20 Error：Please make sure you have the correct access rightsand the repository exists. 解决方案：可能公钥出问题了，重新生成github里的ssh并部署到本地即可。 经测试还是不行，ping github.com 显示连接超时， ssh: connect to host github.com po">
-<meta property="og:type" content="article">
-<meta property="og:title" content="hexo博客问题更新">
-<meta property="og:url" content="http://yoursite.com/2023/202312002/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="jinance">
+<meta property="og:url" content="http://yoursite.com/archives/page/7/index.html">
 <meta property="og:site_name" content="jinance">
-<meta property="og:description" content="2024-01-20 Error：Please make sure you have the correct access rightsand the repository exists. 解决方案：可能公钥出问题了，重新生成github里的ssh并部署到本地即可。 经测试还是不行，ping github.com 显示连接超时， ssh: connect to host github.com po">
 <meta property="og:locale">
-<meta property="article:published_time" content="2023-12-18T18:16:20.000Z">
-<meta property="article:modified_time" content="2024-01-20T10:30:57.774Z">
 <meta property="article:author" content="jinance">
-<meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
 
   
@@ -104,8 +99,17 @@ ga('send', 'pageview');
     <span id="toolbox-mobile" class="toolbox-mobile">首页</span>
   
 
-  <div class="post-header CENTER">
-   
+  <div class="content content-archive">
+  <div class="page-header">
+
+  
+    <div class="breadcrumb">
+      <div class="location">博客</div>
+      <i class="icon-location"></i>
+    </div>
+  
+
+  
   <div class="toolbox">
     <a class="toolbox-entry" href="/">
       <span class="toolbox-entry-text">首页</span>
@@ -184,111 +188,61 @@ ga('send', 'pageview');
   </div>
 
 
-</div>
 
-
-
-
-<div class="content content-post CENTER">
-   <article id="post-202312002" class="article article-type-post" itemprop="blogPost">
-  <header class="article-header">
-    <h1 class="post-title">hexo博客问题更新</h1>
-
-    <div class="article-meta">
-      <span>
-        <i class="icon-calendar"></i>
-        <span>2023.12.19</span>
-      </span>
-
-      
-        <span class="article-author">
-          <i class="icon-user"></i>
-          <span>jinance</span>
-        </span>
-      
-
-      
-  <span class="article-category">
-    <i class="icon-list"></i>
-    <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>
-  </span>
-
-
-
-      
-
-      
-      <i class="fa fa-eye"></i> 
-        <span id="busuanzi_container_page_pv">
-           &nbsp热度 <span id="busuanzi_value_page_pv">
-           <i class="fa fa-spinner fa-spin"></i></span>℃
-        </span>
-      
-      
-    </div>
-  </header>
-
-  <div class="article-content">
-    
-      <p>2024-01-20</p>
-<p>Error：Please make sure you have the correct access rights<br>and the repository exists.</p>
-<p>解决方案：可能公钥出问题了，重新生成github里的ssh并部署到本地即可。</p>
-<p>经测试还是不行，ping github.com 显示连接超时，</p>
-<p>ssh: connect to host github.com port 22: Connection timed out</p>
-<p>最终问题所在及解决方案如下：</p>
-<p>解决方案：最近解析的github.com 域名被墙，在C盘——用户——你的主机名文件夹中找到.ssh文件夹；（此前配置SSH时会生成该文件夹）在.ssh文件夹中新建文件 config,不带后缀，添加如下：</p>
-<p>Host github.com User YourEmail（你的邮箱） </p>
-<p>Hostname ssh.github.com </p>
-<p>PreferredAuthentications publickey </p>
-<p>IdentityFile ~&#x2F;.ssh&#x2F;id_rsa </p>
-<p>Port 443</p>
-<p>再执行如下：</p>
-<p>ssh -T <a href="mailto:&#x67;&#x69;&#x74;&#64;&#103;&#105;&#x74;&#x68;&#117;&#x62;&#x2e;&#x63;&#111;&#x6d;">&#x67;&#x69;&#x74;&#64;&#103;&#105;&#x74;&#x68;&#117;&#x62;&#x2e;&#x63;&#111;&#x6d;</a>，按照提示输入 yes 即可。</p>
-
-    
-  </div>
-
-</article>
-
-
-   
-  <div class="text-center donation">
-    <div class="inner-donation">
-      <span class="btn-donation">🌹</span>
-      <div class="donation-body">
-        <div class="tip text-center">加油，越来越好</div>
-        <ul>
-        
-          <li class="item">
-            
-            <img src="/images/bch.png" alt="">
-          </li>
-        
-        </ul>
+  <div class="box-blog-info">
+    <a class="avatar" href="/">
+      <img src="/images/avatar.jpg" alt="" />
+    </a>
+    <div class="info">
+      <h3 class="name" style="font-family: calligraffittiregular">
+        jinance
+      </h3>
+      <div class="slogan">
+        一个小韭菜的成长史
       </div>
     </div>
   </div>
 
+</div>
 
-   
-  <div class="box-prev-next clearfix">
-    <a class="show pull-left" href="/2023/202312001/">
-        <i class="icon icon-angle-left"></i>
+
+  <div class="post-list-box archive-body">
+    <ul class="list-post">  <li class="item-year item item-title item-title-0">
+    <a href="/archives/2020" class="text-year">
+      2020
+      <i class="icon-shu"></i>
+      
     </a>
-    <a class="show pull-right" href="/2024/202312003/">
-        <i class="icon icon-angle-right"></i>
-    </a>
+  </li>
+<li class="item-post item">
+  <span class="post-date">11-18</span>
+
+  
+  <a class="post-title" href="/2020/202011001/">写博客的意义</a>
+
+
+</li>
+</ul>
+  </div>
+
+  <div class="archive-footer">
+    
+  <div class="pagination">
+    <nav class="page-nav">
+      <a class="extend prev" rel="prev" href="/archives/page/6/"><i class="icon-angle-left"></i></a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/6/">6</a><span class="page-number current">7</span>
+    </nav>
   </div>
 
 
-
-
+  </div>
 </div>
 
 
   <a id="backTop" class="back-top">
     <i class="icon-angle-up"></i>
   </a>
+
+
 
 
 
@@ -376,24 +330,6 @@ ga('send', 'pageview');
 </div>
 
 
-
-  
-      <div class="fexo-comments comments-post">
-    
-
-    
-
-    
-    
-
-    
-
-    
-    
-
-    
-
-  </div>
 
   
 
