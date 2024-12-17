@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>累积成交量差值（CVD） | jinance</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="交易," />
+  
+
+  <meta name="description" content="CVD 指标介绍CVD（Cumulative Volume Delta，累积成交量差）是一种技术分析指标，用于衡量市场中多空力量的变化情况。CVD 通过分析主动买单与主动卖单的成交量差值，帮助交易者了解市场的买卖压力，从而识别趋势和潜在的市场反转点。  CVD 的定义与计算CVD 是主动买单量与主动卖单量之间差值的累积： CVD_t &#x3D; CVD_{t-1} + (\text{主动买入量}">
+<meta property="og:type" content="article">
+<meta property="og:title" content="累积成交量差值（CVD）">
+<meta property="og:url" content="http://yoursite.com/2024/202412005/index.html">
+<meta property="og:site_name" content="jinance">
+<meta property="og:description" content="CVD 指标介绍CVD（Cumulative Volume Delta，累积成交量差）是一种技术分析指标，用于衡量市场中多空力量的变化情况。CVD 通过分析主动买单与主动卖单的成交量差值，帮助交易者了解市场的买卖压力，从而识别趋势和潜在的市场反转点。  CVD 的定义与计算CVD 是主动买单量与主动卖单量之间差值的累积： CVD_t &#x3D; CVD_{t-1} + (\text{主动买入量}">
+<meta property="og:locale">
+<meta property="article:published_time" content="2024-12-16T18:32:54.000Z">
+<meta property="article:modified_time" content="2024-12-16T18:44:06.006Z">
+<meta property="article:author" content="jinance">
+<meta property="article:tag" content="交易">
+<meta name="twitter:card" content="summary">
+
+  
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    
+<link rel="stylesheet" href="/css/personal-style.css">
+
+  
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-38189205-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+
+<!-- 引入math公式库 20240723 -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<!-- 引入雪花特效 20240723 -->
+<script src="/js/snowfall.js"></script>
+
+<meta name="generator" content="Hexo 7.0.0"></head>
+
+<body>
+
+<script type="text/javascript" src="http://libs.baidu.com/jquery/1.8.3/jquery.js"></script>
+<script type="text/javascript" src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">首页</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">首页</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#CVD-%E6%8C%87%E6%A0%87%E4%BB%8B%E7%BB%8D"><span class="toc-text">CVD 指标介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CVD-%E7%9A%84%E5%AE%9A%E4%B9%89%E4%B8%8E%E8%AE%A1%E7%AE%97"><span class="toc-text">CVD 的定义与计算</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CVD-%E7%9A%84%E4%BD%9C%E7%94%A8%E4%B8%8E%E6%84%8F%E4%B9%89"><span class="toc-text">CVD 的作用与意义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CVD-%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">CVD 的应用场景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81%EF%BC%9A%E5%A6%82%E4%BD%95%E7%BB%98%E5%88%B6-CVD-%E5%9B%BE%E8%A1%A8"><span class="toc-text">示例代码：如何绘制 CVD 图表</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-text">注意事项</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-202412005" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">累积成交量差值（CVD）</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2024.12.17</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>jinance</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h4 id="CVD-指标介绍"><a href="#CVD-指标介绍" class="headerlink" title="CVD 指标介绍"></a>CVD 指标介绍</h4><p>CVD（Cumulative Volume Delta，累积成交量差）是一种技术分析指标，用于衡量市场中多空力量的变化情况。CVD 通过分析主动买单与主动卖单的成交量差值，帮助交易者了解市场的买卖压力，从而识别趋势和潜在的市场反转点。</p>
+<hr>
+<h4 id="CVD-的定义与计算"><a href="#CVD-的定义与计算" class="headerlink" title="CVD 的定义与计算"></a>CVD 的定义与计算</h4><p>CVD 是主动买单量与主动卖单量之间差值的累积：</p>
+<p>CVD_t &#x3D; CVD_{t-1} + (\text{主动买入量} - \text{主动卖出量})</p>
+<p>主动买入量：买家以卖方报价成交的交易量（通常称为“吃单”）。</p>
+<p>主动卖出量：卖家以买方报价成交的交易量。</p>
+<p>计算步骤：</p>
+<ol>
+<li><p>获取逐笔交易数据，包括买入成交量和卖出成交量。</p>
+</li>
+<li><p>计算当前时间点的成交量差值：</p>
+</li>
+</ol>
+<p>\Delta V &#x3D; \text{主动买入量} - \text{主动卖出量}</p>
+<hr>
+<h4 id="CVD-的作用与意义"><a href="#CVD-的作用与意义" class="headerlink" title="CVD 的作用与意义"></a>CVD 的作用与意义</h4><ol>
+<li>衡量市场买卖力量：</li>
+</ol>
+<p>CVD 上升：主动买入量持续大于主动卖出量，表明买方主导，市场情绪偏多。</p>
+<p>CVD 下降：主动卖出量持续大于主动买入量，表明卖方主导，市场情绪偏空。</p>
+<ol start="2">
+<li>趋势确认与反转信号：</li>
+</ol>
+<p>CVD 与价格一致：当 CVD 和价格走势方向一致时，通常确认当前趋势的强度。</p>
+<p>CVD 与价格背离：当价格上升而 CVD 下降，或价格下降而 CVD 上升，可能预示趋势反转。</p>
+<ol start="3">
+<li>市场深度与流动性分析：</li>
+</ol>
+<p>CVD 可以反映市场中的交易行为，特别是在关键价位上买卖双方的力量对比。</p>
+<hr>
+<h4 id="CVD-的应用场景"><a href="#CVD-的应用场景" class="headerlink" title="CVD 的应用场景"></a>CVD 的应用场景</h4><ol>
+<li>趋势分析：</li>
+</ol>
+<p>CVD 持续上升表明买入压力强，可能推动价格上涨。</p>
+<p>CVD 持续下降表明卖出压力强，可能推动价格下跌。</p>
+<ol start="2">
+<li>背离信号：</li>
+</ol>
+<p>价格上涨 + CVD 下降：买方力量减弱，可能即将回调。</p>
+<p>价格下跌 + CVD 上升：卖方力量减弱，可能即将反弹。</p>
+<ol start="3">
+<li>判断关键价位的突破与反转：</li>
+</ol>
+<p>在支撑或阻力位，观察 CVD 的变化可以帮助判断是否可能突破或反转。</p>
+<hr>
+<h4 id="示例代码：如何绘制-CVD-图表"><a href="#示例代码：如何绘制-CVD-图表" class="headerlink" title="示例代码：如何绘制 CVD 图表"></a>示例代码：如何绘制 CVD 图表</h4><p>以下是使用 Python 计算和绘制 CVD 的示例代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例数据</span></span><br><span class="line"></span><br><span class="line">data = &#123;</span><br><span class="line">    <span class="string">&#x27;time&#x27;</span>: [<span class="string">&#x27;t1&#x27;</span>, <span class="string">&#x27;t2&#x27;</span>, <span class="string">&#x27;t3&#x27;</span>, <span class="string">&#x27;t4&#x27;</span>, <span class="string">&#x27;t5&#x27;</span>],</span><br><span class="line">    <span class="string">&#x27;buy_volume&#x27;</span>: [<span class="number">200</span>, <span class="number">150</span>, <span class="number">300</span>, <span class="number">250</span>, <span class="number">400</span>],</span><br><span class="line">    <span class="string">&#x27;sell_volume&#x27;</span>: [<span class="number">100</span>, <span class="number">200</span>, <span class="number">100</span>, <span class="number">300</span>, <span class="number">350</span>]</span><br><span class="line">&#125;</span><br><span class="line">df = pd.DataFrame(data)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算 CVD</span></span><br><span class="line"></span><br><span class="line">df[<span class="string">&#x27;delta_volume&#x27;</span>] = df[<span class="string">&#x27;buy_volume&#x27;</span>] - df[<span class="string">&#x27;sell_volume&#x27;</span>]</span><br><span class="line">df[<span class="string">&#x27;CVD&#x27;</span>] = df[<span class="string">&#x27;delta_volume&#x27;</span>].cumsum()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制 CVD 图表</span></span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">12</span>, <span class="number">6</span>))</span><br><span class="line">plt.plot(df[<span class="string">&#x27;time&#x27;</span>], df[<span class="string">&#x27;CVD&#x27;</span>], label=<span class="string">&#x27;Cumulative Volume Delta (CVD)&#x27;</span>, color=<span class="string">&#x27;blue&#x27;</span>, marker=<span class="string">&#x27;o&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">&#x27;CVD Indicator&#x27;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&#x27;Time&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;CVD Value&#x27;</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.grid()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<hr>
+<h4 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h4><ol>
+<li>适用市场：</li>
+</ol>
+<p>CVD 通常应用于高流动性市场，如股票、期货和加密货币交易。</p>
+<ol start="2">
+<li>实时数据依赖：</li>
+</ol>
+<p>CVD 需要高频逐笔交易数据的支持，适合专业交易者或使用高级分析工具的用户。</p>
+<ol start="3">
+<li>结合其他指标：</li>
+</ol>
+<p>CVD 应与价格、成交量、订单簿深度等数据结合分析，以提高准确性。</p>
+<hr>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>CVD（累积成交量差）是一个强大的市场情绪与趋势分析工具，能够帮助交易者了解市场中的多空力量变化。通过观察 CVD 的变化和价格走势的关系，交易者可以更精准地识别趋势和反转信号。然而，CVD 并非万能，需要结合其他技术分析工具和市场基本面信息，全面制定交易策略。</p>
+
+    
+  </div>
+
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">🌹</span>
+      <div class="donation-body">
+        <div class="tip text-center">加油，越来越好</div>
+        <ul>
+        
+          <li class="item">
+            
+            <img src="/images/bch.png" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2024/202412004/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="hide pull-right" href="/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+  <!-- 雪花特效-2023-08-20 -->
+  <script type="text/javascript" src="\js\snow.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300,"hOffset":-15,"vOffset":-15},"mobile":{"show":true},"react":{"opacity":1},"log":false});</script></body>
+</html>
