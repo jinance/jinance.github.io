@@ -109,7 +109,17 @@ ga('send', 'pageview');
 </script>
 
 <!-- 引入雪花特效 20240723 -->
-<script src="/js/snowfall.js"></script>
+<script src="/js/snow.js"></script>
+<script>
+  // 初始化雪花特效
+  snowfall.snow(document.body, {
+    flakeCount: 100, // 雪花数量
+    flakeColor: "#fff", // 雪花颜色
+    minSize: 2, // 雪花最小尺寸
+    maxSize: 5, // 雪花最大尺寸
+    round: true // 雪花是否为圆形
+  });
+</script>
 
 <meta name="generator" content="Hexo 7.0.0"></head>
 
