@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head>
+  <meta charset="utf-8">
+  
+  <title>OI（未平仓合约） | jinance</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="交易,投资," />
+  
+
+  <meta name="description" content="OI 是 Open Interest 的缩写，中文称为“未平仓合约”或“未平仓量”。它是期货和期权市场中的一个重要指标，用于衡量市场活跃度和交易兴趣。  OI（未平仓合约）的定义未平仓合约表示在某个时间点，市场中尚未结算或交割的合约总数量。每一份买入或卖出的合约都需要一个对手方，因此 OI 反映的是买卖双方共同参与的未平仓交易。 增加 OI：当新的买卖双方进入市场并开立新的合约时，OI 会增加。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OI（未平仓合约）">
+<meta property="og:url" content="http://yoursite.com/2024/202411003/index.html">
+<meta property="og:site_name" content="jinance">
+<meta property="og:description" content="OI 是 Open Interest 的缩写，中文称为“未平仓合约”或“未平仓量”。它是期货和期权市场中的一个重要指标，用于衡量市场活跃度和交易兴趣。  OI（未平仓合约）的定义未平仓合约表示在某个时间点，市场中尚未结算或交割的合约总数量。每一份买入或卖出的合约都需要一个对手方，因此 OI 反映的是买卖双方共同参与的未平仓交易。 增加 OI：当新的买卖双方进入市场并开立新的合约时，OI 会增加。">
+<meta property="og:locale">
+<meta property="article:published_time" content="2024-11-27T22:58:16.000Z">
+<meta property="article:modified_time" content="2024-11-27T23:17:24.000Z">
+<meta property="article:author" content="jinance">
+<meta property="article:tag" content="交易">
+<meta property="article:tag" content="投资">
+<meta name="twitter:card" content="summary">
+
+  
+
+  
+    <link rel="icon" href="/images/favicon.ico">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    
+<link rel="stylesheet" href="/css/personal-style.css">
+
+  
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-38189205-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+
+<!-- 引入math公式库 20240723 -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<!-- 引入雪花特效 20240723 -->
+<script src="/js/snow.js"></script>
+<script>
+  // 初始化雪花特效
+  snowfall.snow(document.body, {
+    flakeCount: 100, // 雪花数量
+    flakeColor: "#fff", // 雪花颜色
+    minSize: 2, // 雪花最小尺寸
+    maxSize: 5, // 雪花最大尺寸
+    round: true // 雪花是否为圆形
+  });
+</script>
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+
+<script type="text/javascript" src="http://libs.baidu.com/jquery/1.8.3/jquery.js"></script>
+<script type="text/javascript" src="http://libs.baidu.com/jquery/1.8.3/jquery.min.js"></script>
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">首页</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">首页</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/archives/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/category/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/tag/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/link/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/about/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a
+            class="CIRCLE"
+            href="/search/"
+            rel="noopener noreferrer"
+            target="_self"
+            >
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#OI%EF%BC%88%E6%9C%AA%E5%B9%B3%E4%BB%93%E5%90%88%E7%BA%A6%EF%BC%89%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-text">OI（未平仓合约）的定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OI-%E7%9A%84%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95"><span class="toc-text">OI 的计算方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OI-%E7%9A%84%E6%84%8F%E4%B9%89"><span class="toc-text">OI 的意义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OI-%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">OI 的应用场景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OI-%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7"><span class="toc-text">OI 的局限性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81%EF%BC%9A%E5%A6%82%E4%BD%95%E7%94%A8-Python-%E8%8E%B7%E5%8F%96-OI-%E6%95%B0%E6%8D%AE"><span class="toc-text">示例代码：如何用 Python 获取 OI 数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-text">结论</span></a></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-202411003" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">OI（未平仓合约）</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2024.11.28</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>jinance</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
+    <a class="article-category-link" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a>
+  </span>
+
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <p>OI 是 Open Interest 的缩写，中文称为“未平仓合约”或“未平仓量”。它是期货和期权市场中的一个重要指标，用于衡量市场活跃度和交易兴趣。</p>
+<hr>
+<h4 id="OI（未平仓合约）的定义"><a href="#OI（未平仓合约）的定义" class="headerlink" title="OI（未平仓合约）的定义"></a>OI（未平仓合约）的定义</h4><p>未平仓合约表示在某个时间点，市场中尚未结算或交割的合约总数量。每一份买入或卖出的合约都需要一个对手方，因此 OI 反映的是买卖双方共同参与的未平仓交易。</p>
+<p>增加 OI：当新的买卖双方进入市场并开立新的合约时，OI 会增加。</p>
+<p>减少 OI：当已有的买卖双方平仓（即结清合约）时，OI 会减少。</p>
+<hr>
+<h4 id="OI-的计算方法"><a href="#OI-的计算方法" class="headerlink" title="OI 的计算方法"></a>OI 的计算方法</h4><p>公式：</p>
+<p>$$<br>OI &#x3D; \text{总未平仓合约数量}<br>$$<br>举例：</p>
+<p>假设有 3 位交易者：</p>
+<ol>
+<li><p>交易者 A 买入 1 份合约，交易者 B 卖出 1 份合约，OI 增加 1。</p>
+</li>
+<li><p>交易者 C 再买入 1 份合约，交易者 B 卖出 1 份合约，OI 增加 1，总 OI 为 2。</p>
+</li>
+<li><p>如果交易者 A 平仓 1 份合约，则 OI 减少 1，总 OI 为 1。</p>
+</li>
+</ol>
+<hr>
+<h4 id="OI-的意义"><a href="#OI-的意义" class="headerlink" title="OI 的意义"></a>OI 的意义</h4><ol>
+<li>衡量市场活跃度：</li>
+</ol>
+<p>OI 增加时，说明有更多资金进入市场，市场更活跃。</p>
+<p>OI 减少时，说明市场中资金减少，活跃度下降。</p>
+<ol start="2">
+<li>判断趋势的强弱：</li>
+</ol>
+<p>价格上涨 + OI 增加：说明新资金进入市场支持上涨趋势，趋势可能持续。</p>
+<p>价格上涨 + OI 减少：说明上涨主要由空头回补推动，趋势可能减弱。</p>
+<p>价格下跌 + OI 增加：说明新资金进入市场推动下跌，趋势可能持续。</p>
+<p>价格下跌 + OI 减少：说明下跌主要由多头平仓推动，趋势可能减弱。</p>
+<ol start="3">
+<li>识别市场情绪：</li>
+</ol>
+<p>较高的 OI 表明市场中有更多的未结算头寸，可能存在更大的波动。</p>
+<p>较低的 OI 表明市场参与者较少，波动可能较小。</p>
+<hr>
+<h4 id="OI-的应用场景"><a href="#OI-的应用场景" class="headerlink" title="OI 的应用场景"></a>OI 的应用场景</h4><ol>
+<li>趋势确认：</li>
+</ol>
+<p>如果价格上涨并伴随 OI 增加，可以认为上涨趋势有资金支持，可能会持续。</p>
+<p>如果价格下跌并伴随 OI 增加，可以认为下跌趋势有资金支持，可能会持续。</p>
+<ol start="2">
+<li>判断市场转折点：</li>
+</ol>
+<p>当价格接近重要支撑或阻力位时，观察 OI 的变化可以判断市场是否可能反转。例如，价格接近阻力位时，如果 OI 减少，可能表明市场参与者在获利了结。</p>
+<ol start="3">
+<li>分析持仓兴趣：</li>
+</ol>
+<p>OI 可以反映市场中投资者对某一资产的关注程度，OI 增加通常表明该资产吸引了更多投资者的注意。</p>
+<hr>
+<h4 id="OI-的局限性"><a href="#OI-的局限性" class="headerlink" title="OI 的局限性"></a>OI 的局限性</h4><ol>
+<li>只反映数量，不反映方向：</li>
+</ol>
+<p>OI 是买卖双方共同作用的结果，无法单独反映多头或空头的力量。</p>
+<ol start="2">
+<li>无法独立使用：</li>
+</ol>
+<p>OI 通常需要与价格变化、成交量等其他指标结合分析，才能得出有效结论。</p>
+<ol start="3">
+<li>数据滞后性：</li>
+</ol>
+<p>在一些交易平台，OI 数据可能存在一定延迟，实时性较差。</p>
+<hr>
+<h4 id="示例代码：如何用-Python-获取-OI-数据"><a href="#示例代码：如何用-Python-获取-OI-数据" class="headerlink" title="示例代码：如何用 Python 获取 OI 数据"></a>示例代码：如何用 Python 获取 OI 数据</h4><p>以下是一个获取和绘制 OI 数据的 Python 示例（以 Binance 交易所为例）：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line"><span class="comment"># 获取 OI 数据（Binance API 示例）</span></span><br><span class="line"></span><br><span class="line">symbol = <span class="string">&#x27;BTCUSDT&#x27;</span></span><br><span class="line">url = <span class="string">f&#x27;https://fapi.binance.com/futures/data/openInterestHist?symbol=<span class="subst">&#123;symbol&#125;</span>&amp;period=5m&amp;limit=100&#x27;</span></span><br><span class="line">response = requests.get(url)</span><br><span class="line">data = response.json()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 转换为 DataFrame</span></span><br><span class="line"></span><br><span class="line">df = pd.DataFrame(data)</span><br><span class="line">df[<span class="string">&#x27;timestamp&#x27;</span>] = pd.to_datetime(df[<span class="string">&#x27;timestamp&#x27;</span>], unit=<span class="string">&#x27;ms&#x27;</span>)</span><br><span class="line">df[<span class="string">&#x27;sumOpenInterest&#x27;</span>] = df[<span class="string">&#x27;sumOpenInterest&#x27;</span>].astype(<span class="built_in">float</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绘制 OI 图表</span></span><br><span class="line"></span><br><span class="line">plt.figure(figsize=(<span class="number">12</span>, <span class="number">6</span>))</span><br><span class="line">plt.plot(df[<span class="string">&#x27;timestamp&#x27;</span>], df[<span class="string">&#x27;sumOpenInterest&#x27;</span>], label=<span class="string">&#x27;Open Interest&#x27;</span>)</span><br><span class="line">plt.title(<span class="string">f&#x27;<span class="subst">&#123;symbol&#125;</span> Open Interest&#x27;</span>)</span><br><span class="line">plt.xlabel(<span class="string">&#x27;Time&#x27;</span>)</span><br><span class="line">plt.ylabel(<span class="string">&#x27;Open Interest&#x27;</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.grid(<span class="literal">True</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+
+
+
+<hr>
+<h4 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h4><p>未平仓合约（OI）是期货和期权市场中一个重要的分析工具，可以帮助交易者衡量市场的活跃度和趋势的强弱。通过将 OI 与价格和成交量结合分析，交易者可以更好地判断市场的趋势和转折点。然而，OI 并不能单独使用，它需要结合其他指标和市场环境进行全面分析，以提高交易的成功率。</p>
+
+    
+  </div>
+
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">🌹</span>
+      <div class="donation-body">
+        <div class="tip text-center">加油，越来越好</div>
+        <ul>
+        
+          <li class="item">
+            
+            <img src="/images/bch.png" alt="">
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2024/202411002/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2024/202412001/">
+        <i class="icon icon-angle-right"></i>
+    </a>
+  </div>
+
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/archives/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/category/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/tag/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/link/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/about/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a
+              class="CIRCLE"
+              href="/search/"
+              rel="noopener noreferrer"
+              target="_self"
+              >
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+  <!-- 雪花特效-2023-08-20 -->
+  <script type="text/javascript" src="\js\snow.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/assets/hijiki.model.json"},"display":{"position":"left","width":150,"height":300,"hOffset":-15,"vOffset":-15},"mobile":{"show":true},"react":{"opacity":1},"log":false});</script></body>
+</html>
